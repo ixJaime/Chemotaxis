@@ -16,7 +16,6 @@ void setup()
 void draw()   
 {     
   background(0);
-
   for (int i=0; i<bob.length; i++) {
     bob[i].move();
     bob[i].show();
@@ -38,9 +37,13 @@ class Bacteria
 
   void move() 
   {
-    x = x+ (int)(Math.random()*30);
-    y = y+(int)(Math.random()*30);
+    x = x+ (int)(Math.random()*10);
+    y = y+(int)(Math.random()*5);
 
+if(mousePressed) {
+    x = (int)(Math.random()*500);
+    y = (int)(Math.random()*500);
+  }
     float targetX = mouseX;
     float dx = targetX - x;
     x+=dx *moveSpeed;
@@ -55,11 +58,5 @@ class Bacteria
   {
     fill(a, b, c);
     ellipse(x, y, 20, 20);
-  }
-  
-  void mousePressed()
-  {
-    x = (int)(Math.random()*500);
-    y = (int)(Math.random()*500);
   }
 }    
